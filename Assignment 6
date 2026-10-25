@@ -1,1 +1,33 @@
 
+import pandas as pd
+
+# Step 1: Read the CSV file
+df = pd.read_csv("data.csv")
+
+# Step 2: Display original data
+print("Original Dataset:")
+print(df)
+
+# Step 3: Check missing values
+print("\nMissing Values:")
+print(df.isnull().sum())
+
+# Step 4: Remove rows with missing values
+df = df.dropna()
+
+# Step 5: Remove duplicate rows
+df = df.drop_duplicates()
+
+# Step 6: Select the first three rows
+print("\nSelected Rows:")
+print(df.loc[df.index[:3]])
+
+# Step 7: Display cleaned data
+print("\nCleaned Dataset:")
+print(df)
+
+# Step 8: Save cleaned data
+df.to_csv("cleaned_data.csv", index=False)
+
+print("\nData preprocessing completed successfully!")
+
